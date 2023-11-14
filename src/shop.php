@@ -4,7 +4,7 @@ namespace Airam\Examen;
 use Airam\ExamenT3\Elements;
 use Airam\ExamenT3\Products;
 use Airam\ExamenT3\Services;
-use Airam\ExamenT3\timedOut;
+use Airam\ExamenT3\TimedOut;
 
 
 class Shop {
