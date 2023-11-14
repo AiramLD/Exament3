@@ -1,41 +1,75 @@
 <?php
 require_once '../vendor/autoload.php';
 
-use Airam\ExamenT3\Shop;
-use Airam\ExamenT3\MixedServices;
-use Airam\ExamenT3\NormalServices;
-use Airam\ExamenT3\Elements;
-use Airam\ExamenT3\Products;
-use Airam\ExamenT3\EventsServices;
-use Airam\ExamenT3\SessionsServices;
-use Airam\ExamenT3\PerishableProduct;
-
-$shop = new Shop();
+use Airam\Store\Shop;
+use Airam\Store\MixedServices;
+use Airam\Store\NormalServices;
+use Airam\Store\Elements;
+use Airam\Store\Products;
+use Airam\Store\EventsServices;
+use Airam\Store\SessionsServices;
+use Airam\Store\PerishableProduct;
 
 // 5 PRODUCTOS:
 
 // 2 Productos no perecederos
-$shop->addElements(new Products("Raton", 32, "Logitech", 50, 120));
-$shop->addElements(new Products("Teclado", 42.99, "Krom", 100, 200));
-// 1 Producto perecedero caducado
-$shop->addElements(new PerishableProduct("Refresco", 1.50, "CocaCola", 2, 4, "2022/12/30"));
-// 1 Producto perecedero que caduque en 2 o 3 dias
-$shop->addElements(new PerishableProduct("Monitor", 100, "NOC", 500, 800, "2023/11/20"));
-// 1 Producto perecedero que caduque en 20 o 25 dias
-$shop->addElements(new PerishableProduct("PC", 230, "Koke", 2000, 3000, "2023/12/10"));
+$producto1 = new Products("Sobre de Magic", 22.00, "HASBRO", 20,  1);
+$producto2 = new Products("Teclado x123", 300, "RAZER", 100,  25);
+//1 producto perecedero ya caducado
+$producto3 = new Products("Lays sabor Campesinas", 2.10, "LAYS", 67,  14,  "2014/10/12");
+$today = new DateTime();
+$todayafterTwoDays = (clone $today)->add(new DateInterval('P2D'));
+// 1 producto perecedero que caduque en 2 o 3 días
+$producto4 = new Products("Agua mineral", 2.98, "Coca Cola", 20, $hoyDespuesdeDosDias->format('Y/m/d'));
+
+// 1 producto perecedero que caduque en 20 días
+$todayafterTwentyDays = (clone $today)->add(new DateInterval('P20D'));
+$producto5 = new Products("Agua mineral sin gas", 1.98, "Coca Cola", 20, $todayafterTwentyDays->format('Y/m/d'));
 
 // 9 SERVICIOS:
+//Servicios
+// 3 Eventos
+//uno caducado
+$servicio1 = new EventsServices("Scape-Room", 100.00,"2021/10/10");
 
-// 3 eventos: uno caducado, otro que caduque hoy y otro que caduque en unos meses
-$shop->addElements(new EventsServices("Concierto de Feid", 30, "2023/10/10"));
-$shop->addElements(new EventsServices("Concierto de Mora", 50, "2023/11/10"));
-$shop->addElements(new EventsServices("Concierto de Mora", 50, "2024/01/01"));
-// 2 servicios por sesiones: uno al que le quedan pocas sesiones y otro al que no le queda ninguna
-// $shop->addElements(new SessionsServices("Entrenamiento", 30, 10));
-// $shop->addElements(new SessionsServices("Entrenamiento de futbol", 100, 2));
-// 2 servicios mixtos: uno caducado y otro no.
-$shop->addElements(new MixedServices("Curso de Ingles", 199.99, "2023/10/10", 10));
-$shop->addElements(new MixedServices("Curso de LLados", 300, "2023/12/10", 20));
-// 2 servicios normales.
-$shop->addElements(new NormalServices("Bono de guauga", 29.99));
-$shop->addElements(new NormalServices("Servicio de Atencion al cliente", 20));
+//uno que caduque today
+$servicio2 = new EventsServices("Evento Caducado: Siam park", 50.00, $today->format('Y/m/d'));
+
+//que caduque en unos meses
+$todayafterTwoMonths = (clone $today)->add(new DateInterval('P3M'));
+$servicio3 = new EventsServices("Concierto Artic Monkeys", 70.00, $todayafterTwentyDays->format('Y/m/d'));
+
+// 2 servicios por sesiones: uno al que le quedan pocas sesiones y otro al que no le queda ninguna.
+$servicio4 = new SessionsServices("Yoga", 58, 3);
+$servicio5 = new SessionsServices("Natacion", 15.95, 0);
+
+//2 Servicios Mixtos
+//caducado
+$servicio6 = new MixedServices("Escalada", 20, "2020/03/05", 8);
+
+//sin caducar
+$servicio7 = new MixedServices("Bicicleta", 30, "2023/12/10", 1);
+
+// Servicios Normales
+$servicio8 = new NormalServices("Andar", 0.01);
+$servicio9 = new NormalServices("Cocinar", 10.01);
+
+
+$shop = new Shop();
+//Añadimos los Productos
+$shop->addElement($producto1);
+$shop->addElement($producto2);
+$shop->addElement($producto3);
+$shop->addElement($producto4);
+$shop->addElement($producto5);
+//Añade servicios
+$shop->addElement($servicio1);
+$shop->addElement($servicio2);
+$shop->addElement($servicio3);
+$shop->addElement($servicio4);
+$shop->addElement($servicio5);
+$shop->addElement($servicio6);
+$shop->addElement($servicio7);
+$shop->addElement($servicio8);
+$shop->addElement($servicio9);
+

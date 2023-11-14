@@ -1,7 +1,7 @@
 <?php
 
-namespace Airam\Examen;
-use Airam\ExamenT3\Elements;
+namespace Airam\Store;
+use Airam\Store\Elements;
 
 
 class Products extends Elements {

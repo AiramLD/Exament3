@@ -1,7 +1,7 @@
 <?php
-namespace Airam\Examen;
-use Airam\ExamenT3\Services;
-use Airam\ExamenT3\TimedOut;
+namespace Airam\Store;
+use Airam\Store\Services;
+use Airam\Store\TimedOut;
 use DateTime;
 
 class MixedServices extends Services implements TimedOut {

@@ -1,7 +1,7 @@
 <?php
 
-namespace Airam\Examen;
-use Airam\ExamenT3\Products;
+namespace Airam\Store;
+use Airam\Store\Products;
 use DateTime;
 
 class PerishableProduct extends Products implements TimedOut {

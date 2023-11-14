@@ -1,7 +1,6 @@
 <?php
 
-namespace Airam\Examen;
-
+namespace Airam\Store;
 abstract class Elementos {
     protected $name;
     protected $basePrice;

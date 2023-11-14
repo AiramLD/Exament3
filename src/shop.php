@@ -1,10 +1,10 @@
 <?php
 
-namespace Airam\Examen;
-use Airam\ExamenT3\Elements;
-use Airam\ExamenT3\Products;
-use Airam\ExamenT3\Services;
-use Airam\ExamenT3\TimedOut;
+namespace Airam\Store;
+use Airam\Store\Elements;
+use Airam\Store\Products;
+use Airam\Store\Services;
+use Airam\Store\TimedOut;
 
 
 class Shop {

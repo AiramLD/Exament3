@@ -18,11 +18,11 @@ if (isset($_GET['filter'])) {
     foreach($shop->showElements() as $i) {
       echo "<br><p>$i</p>";
     };
-  } else if ($filter == 'expirationDate') {
-    foreach($shop->showElementsExpirationDate() as $i) {
+  } else if ($filter == 'finalDate') {
+    foreach($shop->showElementsTimedOutDate() as $i) {
       echo "<br><p>$i</p>";
     };  } else if ($filter == 'unexpired') {
-      foreach($shop->showNoExpired() as $i) {
+      foreach($shop->showNoTimedOut() as $i) {
         echo "<br><p>$i</p>";
       };
   }
