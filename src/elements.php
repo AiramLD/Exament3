@@ -1,7 +1,7 @@
 <?php
 
 namespace Airam\Store;
-abstract class Elementos {
+abstract class Elements {
     protected $name;
     protected $basePrice;
     protected $tax = 0.07;
