@@ -1,0 +1,17 @@
+{
+    "name": "airam/examen",
+    "description": "yes",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Airam\\ExamenT3\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AiramLD",
+            "email": "airamluisdiaz629@gmail.com"
+        }
+    ],
+    "require": {}
+}
