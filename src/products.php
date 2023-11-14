@@ -1,6 +1,6 @@
 <?php
 
-namespace Airam\ExamenT3;
+namespace Airam\Examen;
 use Airam\ExamenT3\Elements;
 
 
