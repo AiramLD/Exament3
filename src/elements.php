@@ -18,6 +18,7 @@ public function setTax($newTax) {
     $this->tax = $newTax;
 }
 public function __toString() {
-        return "Nombre: $this->name <br>Precio base: $this->basePrice";
+        return "Nombre: $this->name <br>
+        Precio base: $this->basePrice";
     }
 }

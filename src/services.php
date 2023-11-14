@@ -1,7 +1,7 @@
 <?php
 
 namespace Airam\Examen;
-use Airam\Examen\Elements;
+use Airam\ExamenT3\Elements;
 
 abstract class Services extends Elements {
     
